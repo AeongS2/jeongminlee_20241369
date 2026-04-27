@@ -57,6 +57,9 @@ function draw() {
   textSize(50);
   text("점수: " + score, 10, 50);
 
+  // 벽
+  
+
   // 팩맨
   // if(keyIsDown(LEFT_ARROW)) px -= 3;
   // if(keyIsDown(RIGHT_ARROW)) px += 3;
