@@ -12,7 +12,7 @@ function setup() {
 // 아이템 데이터
 let dx = [];
 let dy = [];
-let dsize = 25;
+let dsize = 15;
 let dActive = [];
 
 // 점수 데이터
@@ -25,16 +25,26 @@ let pd = 30;
 
 //수정필요
 function setItem(){
-  let x = 430;
-  let y = 100;
+  let x = 420;
+  let y = 130;
+  let dis = 90;
+  let line = 1;
 
-  //첫줄
-  for(let i = 0; i < 10; i++){
-    dx[i] = x;
-    dy[i] = y;
-    dActive[i] = true;
+  for(let i = 0; i < 22; i++){
+    //첫줄
+    if(line === 1){
+      dx[i] = x;
+      dy[i] = y;
+      dActive[i] = true;
+  
+      x += dis;
 
-    x += 50;
+      if(i === 10){
+        x += dis;
+      }
+    }else if(line === 2){
+
+    }
   }
 }
 
@@ -63,8 +73,12 @@ function draw() {
       fill(255, 240, 31);
       ellipse(dx[i], dy[i], dsize);
 
-      
     }
   }
 
+}
+
+
+function mousePressed(){
+  console.log(mouseX, mouseY);
 }
