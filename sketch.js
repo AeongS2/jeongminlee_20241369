@@ -1,7 +1,13 @@
+let bg;
+
+function preload(){
+  img = loadImage('Map.png');
+}
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(2816, 1536);
 }
 //깃허브 테스트
 function draw() {
-  background(220);
+  background(img);
 }
