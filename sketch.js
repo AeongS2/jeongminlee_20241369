@@ -40,6 +40,8 @@ function setItem(){
 
 
 function draw() {
+  
+
   background(img);
   fill(255, 255, 0);
   textSize(50);
