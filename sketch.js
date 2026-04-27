@@ -10,8 +10,9 @@ function setup() {
 }
 
 // 아이템 데이터
-let dx, dy;
-let dsize = 100;
+let dx = [];
+let dy = [];
+let dsize = 25;
 let dActive = [];
 
 // 점수 데이터
@@ -24,8 +25,8 @@ let pd = 30;
 
 //수정필요
 function setItem(){
-  let x = 500;
-  let y = 150;
+  let x = 430;
+  let y = 100;
 
   //첫줄
   for(let i = 0; i < 10; i++){
@@ -55,10 +56,10 @@ function draw() {
 
   // 충돌 감지
   for(let i = 0; i < dActive.length; i++){
-    fill(255, 240, 31);
-    ellipse(dx[i], dy[i], dsize);
     
     if(dActive[i] === true){
+      fill(255, 240, 31);
+      ellipse(dx[i], dy[i], dsize);
 
       
     }
