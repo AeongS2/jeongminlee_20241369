@@ -6,11 +6,12 @@ function preload(){
 
 function setup() {
   createCanvas(2816, 1536);
+  setItem();
 }
 
 // 아이템 데이터
 let dx, dy;
-let dsize = 50;
+let dsize = 100;
 let dActive = [];
 
 // 점수 데이터
@@ -21,6 +22,7 @@ let score = 0;
 let px, py;
 let pd = 30;
 
+//수정필요
 function setItem(){
   let x = 500;
   let y = 150;
@@ -38,24 +40,25 @@ function setItem(){
 
 function draw() {
   background(img);
+  fill(255, 255, 0);
   textSize(50);
   text("점수: " + score, 10, 50);
 
   // 팩맨
-  if(keyIsDown(LEFT_ARROW)) px -= 3;
-  if(keyIsDown(RIGHT_ARROW)) px += 3;
-  if(keyIsDown(UP_ARROW)) py -= 3;
-  if(keyIsDown(DOWN_ARROW)) py += 3;
+  // if(keyIsDown(LEFT_ARROW)) px -= 3;
+  // if(keyIsDown(RIGHT_ARROW)) px += 3;
+  // if(keyIsDown(UP_ARROW)) py -= 3;
+  // if(keyIsDown(DOWN_ARROW)) py += 3;
 
-  fill(255, 255, 0);
-  ellipse(px, py, pd);
+  // fill(255, 255, 0);
+  // ellipse(px, py, pd);
 
   // 충돌 감지
   for(let i = 0; i < dActive.length; i++){
+    fill(255, 240, 31);
+    ellipse(dx[i], dy[i], dsize);
     
     if(dActive[i] === true){
-      fill(255, 240, 31);
-      ellipse(dx[i], dy[i], dsize);
 
       
     }
