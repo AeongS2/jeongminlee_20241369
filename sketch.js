@@ -71,6 +71,17 @@ let pd = 50;
 //   return result;
 // }
 
+function checkWall(px, py){
+  let r = size / 2;
+
+  let points = [
+    {x: px - r, y: py}, // 왼쪽
+    {x: px + r, y: py}, // 오른쪽
+    {x: px, y: py - r}, // 위
+    {x: px, y: py + r}  // 아래
+  ];
+}
+
 //수정필요
 function setItem(){
   let x = 420;
