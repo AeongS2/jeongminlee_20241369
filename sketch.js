@@ -72,7 +72,7 @@ let pd = 50;
 // }
 
 function checkWall(px, py){
-  let r = size / 2;
+  let r = pd / 2;
 
   let points = [
     {x: px - r, y: py}, // 왼쪽
@@ -81,7 +81,12 @@ function checkWall(px, py){
     {x: px, y: py + r}  // 아래
   ];
 
-  for(let point of points){
+  for(let p of points){
+    let ix = floor(p.x);
+    let iy = floor(p.y);
+    
+    let index = (ix + iy *width) * 4;
+  }
     
 }
 
