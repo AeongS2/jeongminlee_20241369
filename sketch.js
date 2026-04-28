@@ -21,47 +21,16 @@ let gamecnt = 0;
 let score = 0;
 
 // 팩맨 데이터
-let px, py;
-let pd = 30;
+let px = 400;
+let py = 300;
+let pd = 50;
 
-// 맵 데이터
-let tileSize = 50;
-// let map = [
-//   [1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1],
-//   [1,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,1],
-//   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  
-// ];
-
-// let map = [
-//   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1],
-//   [1,0,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,1],
-//   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  
-// ];
-
-let mapX;
-let mapY;
-
-function drawMap(){
-  // for(){
-
+function checkWall(x, y){
+  // if(){
+    
   // }
-
-  let resX = 0;
-  let resY = 0;
-  for(let y = 0; y<map.length; y++){
-    for(let x = 0; x<map[y].length; x++){
-      if(map[y][x] === 1){
-        //stroke(50);
-        fill(255,0,0);
-        resX = x*tileSize + 380;
-        resY = y*tileSize + 90;
-        rect(resX, resY, tileSize, tileSize);
-      }
-    }
-  }
 }
+
 
 //수정필요
 function setItem(){
@@ -105,16 +74,16 @@ function draw() {
   text("점수: " + score, 10, 50);
 
   // 벽
-  drawMap();  //수정
+  //drawMap();  //수정
 
   // 팩맨
-  // if(keyIsDown(LEFT_ARROW)) px -= 3;
-  // if(keyIsDown(RIGHT_ARROW)) px += 3;
-  // if(keyIsDown(UP_ARROW)) py -= 3;
-  // if(keyIsDown(DOWN_ARROW)) py += 3;
+  if(keyIsDown(LEFT_ARROW)) px -= 3;
+  if(keyIsDown(RIGHT_ARROW)) px += 3;
+  if(keyIsDown(UP_ARROW)) py -= 3;
+  if(keyIsDown(DOWN_ARROW)) py += 3;
 
-  // fill(255, 255, 0);
-  // ellipse(px, py, pd);
+  fill(255, 255, 0);
+  ellipse(px, py, pd);
 
   // 충돌 감지
   for(let i = 0; i < dActive.length; i++){
