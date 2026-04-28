@@ -42,9 +42,18 @@ function setItem(){
       if(i === 10){
         x += dis;
       }
+      if(i === 21){
+        line = 2;
+        y += dis;
+      }
     }else if(line === 2){
 
     }
+  }
+
+
+  for(let i = 0; i < 4; i++){
+
   }
 }
 
@@ -58,7 +67,7 @@ function draw() {
   text("점수: " + score, 10, 50);
 
   // 벽
-  
+
 
   // 팩맨
   // if(keyIsDown(LEFT_ARROW)) px -= 3;
