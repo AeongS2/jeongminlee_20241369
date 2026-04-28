@@ -27,7 +27,7 @@ let pd = 50;
 
 function checkWall(x, y){
   let result = false;
-  if(x < 390 && y > 100){
+  if(x > 390 && y > 80 ){
     result = true;
   }
 
