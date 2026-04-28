@@ -7,7 +7,7 @@ function preload(){
 function setup() {
   createCanvas(2816, 1536);
   setItem();
-  
+  img.loadPixels();
 }
 
 // 아이템 데이터
@@ -24,6 +24,7 @@ let score = 0;
 let px = 400;
 let py = 300;
 let pd = 50;
+let speed = 10;
 
 // function checkWallLeft(x, y){
 //   let result = true;
@@ -86,8 +87,17 @@ function checkWall(px, py){
     let iy = floor(p.y);
     
     let index = (ix + iy *width) * 4;
-  }
     
+    let rColor = img.pixels[index];
+    let gColor = img.pixels[index + 1];
+    let bColor = img.pixels[index + 2];
+
+    if(rColor > 100 || gColor > 100 || bColor > 100){
+      return false;
+    }
+
+  }
+  return true;
 }
 
 //수정필요
@@ -136,24 +146,23 @@ function draw() {
 
   // 팩맨
   if(keyIsDown(LEFT_ARROW)){
-    if(checkWallLeft(px, py) === true){
-      px -= 10;
-
+    if(checkWall(px - speed, py)){
+      px -= speed;
     }
   }
   if(keyIsDown(RIGHT_ARROW)){
-    if(checkWallRight(px, py) === true){
-      px += 10;
+    if(checkWall(px + speed, py)){
+      px += speed;
     }
   }
   if(keyIsDown(UP_ARROW)){
-    if(checkWallUp(px, py) === true){
-      py -= 10;
+    if(checkWall(px, py - speed) === true){
+      py -= speed;
     }
   }
   if(keyIsDown(DOWN_ARROW)){
-    if(checkWallDown(px, py) === true){ 
-      py += 10;
+    if(checkWall(px, py + speed) === true){ 
+      py += speed;
     }
   }
 
@@ -173,7 +182,6 @@ function draw() {
 }
 
 
-  function mousePressed(){
-    console.log(mouseX, mouseY);
-  }
+function mousePressed(){
+  console.log(mouseX, mouseY);
 }
