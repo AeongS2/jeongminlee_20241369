@@ -80,6 +80,9 @@ function checkWall(px, py){
     {x: px, y: py - r}, // 위
     {x: px, y: py + r}  // 아래
   ];
+
+  for(let point of points){
+    
 }
 
 //수정필요
@@ -165,6 +168,7 @@ function draw() {
 }
 
 
-function mousePressed(){
-  console.log(mouseX, mouseY);
+  function mousePressed(){
+    console.log(mouseX, mouseY);
+  }
 }
