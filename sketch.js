@@ -26,38 +26,50 @@ let py = 300;
 let pd = 50;
 
 function checkWallLeft(x, y){
-  let result = false;
-  if(x > 390 && y > 80 ){
-    result = true;
+
+
+  let result = true;
+
+  if(x > 0 &&  x < 420 && y > 80 && y < 490){ //2
+    result = false
+    console.log("벽2");
+  }else if(x > 0 && x < 600 && y > 510 && y < 760){ //3}
+    result = false;
+    console.log("벽3");
+
   }
 
   return result;
 }
 
 function checkWallRight(x, y){
-  let result = false;
-  if(x < 2420 && y > 80 ){
-    result = true;
-  }
+  let result = true;
 
   return result;
+
 }
 
 function checkWallUp(x, y){
-  let result = false;
-  if(x > 390 && y > 80){
-    result = true;
+  let result = true;
+
+  if(x > 0 && y < 80){  //1
+    console.log("벽1");
+    result = false;
+  }else if(x > 0 && x < 560 && y > 520 && y < 760){ //3}
+    result = false;
+    console.log("벽3");
+
   }
 
   return result;
 }
 
-function checkWall(x , y){
+function checkWallDown(x, y){
   let result = true;
-  if(x > 0 && y < 80){  //1
+console.log(x, y);
+  if(x > 0 && x < 560 && y > 480 ){
     result = false;
-  }else if(x > 0 &&  x < 390 && y > 80 && y < 490){
-
+    console.log("down");
   }
 
   return result;
@@ -124,7 +136,11 @@ function draw() {
       py -= 10;
     }
   }
-  if(keyIsDown(DOWN_ARROW)) py += 3;
+  if(keyIsDown(DOWN_ARROW)){
+    if(checkWallDown(px, py) === true){ 
+      py += 10;
+    }
+  }
 
   fill(255, 255, 0);
   ellipse(px, py, pd);
