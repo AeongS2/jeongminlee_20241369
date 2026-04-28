@@ -25,21 +25,23 @@ let px = 400;
 let py = 300;
 let pd = 50;
 
-function checkWall(x, y){
+function checkWallLeft(x, y){
   let result = false;
   if(x > 390 && y > 80 ){
     result = true;
-  }else if(x > 580 && y > 530){
-
-  }else if(x > 430 && y > 1000){
-
   }
-
-  
 
   return result;
 }
 
+function checkWallRight(x, y){
+  let result = false;
+  if(x < 2420 && y > 80 ){
+    result = true;
+  }
+
+  return result;
+}
 
 //수정필요
 function setItem(){
@@ -87,12 +89,16 @@ function draw() {
 
   // 팩맨
   if(keyIsDown(LEFT_ARROW)){
-    if(checkWall(px, py) === true){
-      px -= 3;
+    if(checkWallLeft(px, py) === true){
+      px -= 10;
 
     }
   }
-  if(keyIsDown(RIGHT_ARROW)) px += 3;
+  if(keyIsDown(RIGHT_ARROW)){
+    if(checkWallRight(px, py) === true){
+      px += 10;
+    }
+  }
   if(keyIsDown(UP_ARROW)) py -= 3;
   if(keyIsDown(DOWN_ARROW)) py += 3;
 
