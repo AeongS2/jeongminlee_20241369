@@ -30,10 +30,10 @@ function checkWallLeft(x, y){
 
   let result = true;
 
-  if(x > 0 &&  x < 420 && y > 80 && y < 490){ //2
+  if(x > 0 &&  x < 390 && y > 90 && y <= 490){ //2
     result = false
     console.log("벽2");
-  }else if(x > 0 && x < 600 && y > 510 && y < 760){ //3}
+  }else if(x > 0 && x < 600 && y > 510 && y < 720){ //3}
     result = false;
     console.log("벽3");
 
@@ -52,7 +52,7 @@ function checkWallRight(x, y){
 function checkWallUp(x, y){
   let result = true;
 
-  if(x > 0 && y < 80){  //1
+  if(x > 0 && y < 110){  //1
     console.log("벽1");
     result = false;
   }else if(x > 0 && x < 560 && y > 520 && y < 760){ //3}
@@ -66,7 +66,6 @@ function checkWallUp(x, y){
 
 function checkWallDown(x, y){
   let result = true;
-console.log(x, y);
   if(x > 0 && x < 560 && y > 480 ){
     result = false;
     console.log("down");
