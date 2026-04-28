@@ -41,6 +41,10 @@ let map = [
 ];
 
 function drawMap(){
+  // for(){
+
+  // }
+
   let resX = 0;
   let resY = 0;
   for(let y = 0; y<map.length; y++){
