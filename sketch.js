@@ -43,6 +43,15 @@ function checkWallRight(x, y){
   return result;
 }
 
+function checkWallUp(x, y){
+  let result = false;
+  if(x > 390 && y > 80){
+    result = true;
+  }
+
+  return result;
+}
+
 //수정필요
 function setItem(){
   let x = 420;
@@ -99,7 +108,11 @@ function draw() {
       px += 10;
     }
   }
-  if(keyIsDown(UP_ARROW)) py -= 3;
+  if(keyIsDown(UP_ARROW)){
+    if(checkWallUp(px, py) === true){
+      py -= 10;
+    }
+  }
   if(keyIsDown(DOWN_ARROW)) py += 3;
 
   fill(255, 255, 0);
