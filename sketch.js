@@ -23,6 +23,9 @@ let score = 0;
 let px, py;
 let pd = 30;
 
+// 맵 데이터
+let tileSize = 100;
+
 //수정필요
 function setItem(){
   let x = 420;
