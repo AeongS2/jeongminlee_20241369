@@ -52,6 +52,17 @@ function checkWallUp(x, y){
   return result;
 }
 
+function checkWall(x , y){
+  let result = true;
+  if(x > 0 && y < 80){  //1
+    result = false;
+  }else if(x > 0 &&  x < 390 && y > 80 && y < 490){
+
+  }
+
+  return result;
+}
+
 //수정필요
 function setItem(){
   let x = 420;
