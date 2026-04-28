@@ -25,54 +25,51 @@ let px = 400;
 let py = 300;
 let pd = 50;
 
-function checkWallLeft(x, y){
+// function checkWallLeft(x, y){
+//   let result = true;
 
+//   if(x > 0 &&  x < 390 && y > 90 && y <= 490){ //2
+//     result = false
+//     console.log("벽2");
+//   }else if(x > 0 && x < 600 && y > 510 && y < 720){ //3}
+//     result = false;
+//     console.log("벽3");
+//   }
 
-  let result = true;
+//   return result;
+// }
 
-  if(x > 0 &&  x < 390 && y > 90 && y <= 490){ //2
-    result = false
-    console.log("벽2");
-  }else if(x > 0 && x < 600 && y > 510 && y < 720){ //3}
-    result = false;
-    console.log("벽3");
+// function checkWallRight(x, y){
+//   let result = true;
 
-  }
+//   return result;
 
-  return result;
-}
+// }
 
-function checkWallRight(x, y){
-  let result = true;
+// function checkWallUp(x, y){
+//   let result = true;
 
-  return result;
+//   if(x > 0 && y < 110){  //1
+//     console.log("벽1");
+//     result = false;
+//   }else if(x > 0 && x < 560 && y > 520 && y < 760){ //3}
+//     result = false;
+//     console.log("벽3");
 
-}
+//   }
 
-function checkWallUp(x, y){
-  let result = true;
+//   return result;
+// }
 
-  if(x > 0 && y < 110){  //1
-    console.log("벽1");
-    result = false;
-  }else if(x > 0 && x < 560 && y > 520 && y < 760){ //3}
-    result = false;
-    console.log("벽3");
+// function checkWallDown(x, y){
+//   let result = true;
+//   if(x > 0 && x < 560 && y > 480 ){
+//     result = false;
+//     console.log("down");
+//   }
 
-  }
-
-  return result;
-}
-
-function checkWallDown(x, y){
-  let result = true;
-  if(x > 0 && x < 560 && y > 480 ){
-    result = false;
-    console.log("down");
-  }
-
-  return result;
-}
+//   return result;
+// }
 
 //수정필요
 function setItem(){
