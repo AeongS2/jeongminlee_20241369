@@ -29,7 +29,13 @@ function checkWall(x, y){
   let result = false;
   if(x > 390 && y > 80 ){
     result = true;
+  }else if(x > 580 && y > 530){
+
+  }else if(x > 430 && y > 1000){
+
   }
+
+  
 
   return result;
 }
