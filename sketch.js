@@ -26,9 +26,12 @@ let py = 300;
 let pd = 50;
 
 function checkWall(x, y){
-  // if(){
-    
-  // }
+  let result = false;
+  if(x < 390 && y > 100){
+    result = true;
+  }
+
+  return result;
 }
 
 
@@ -77,7 +80,12 @@ function draw() {
   //drawMap();  //수정
 
   // 팩맨
-  if(keyIsDown(LEFT_ARROW)) px -= 3;
+  if(keyIsDown(LEFT_ARROW)){
+    if(checkWall(px, py) === true){
+      px -= 3;
+
+    }
+  }
   if(keyIsDown(RIGHT_ARROW)) px += 3;
   if(keyIsDown(UP_ARROW)) py -= 3;
   if(keyIsDown(DOWN_ARROW)) py += 3;
