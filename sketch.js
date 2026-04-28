@@ -46,8 +46,6 @@ function setItem(){
         line = 2;
         y += dis;
       }
-    }else if(line === 2){
-
     }
   }
 
