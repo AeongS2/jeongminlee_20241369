@@ -41,7 +41,7 @@ function checkWall(px, py){
     let ix = floor(p.x);
     let iy = floor(p.y);
     
-    let index = (ix + iy *width) * 4;
+    let index = (ix + iy * img.width) * 4;
     
     let rColor = img.pixels[index];
     let gColor = img.pixels[index + 1];
@@ -63,10 +63,14 @@ function setItem(){
   
   for(let line = 0; line < 17; line++){ //세로
     //가로 23개
+    x = 420;
+    dActive[line] = [];
+    dx[line] = [];
+    dy[line] = [];
     for(let i = 0; i < 23; i++){
 
-      dx[i] = x;
-      dy[i] = y;
+      dx[line][i] = x;
+      dy[line][i] = y;
 
       dActive[line][i] = true;
       x += dis;
