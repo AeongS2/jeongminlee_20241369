@@ -15,7 +15,6 @@ let dx = [];
 let dy = [];
 let dsize = 15;
 let dActive = [];
-let line = 0;
 
 // 점수 데이터
 let gamecnt = 0;
@@ -56,6 +55,12 @@ function checkWall(px, py){
   return true;
 }
 
+function checkPath(){
+  
+
+  return true;
+}
+
 //수정필요
 function setItem(){
   let x;
@@ -69,7 +74,7 @@ function setItem(){
     dx[li] = [];
     dy[li] = [];
     for(let i = 0; i < 23; i++){
-      if(checkWall(x, y)){
+      if(checkWall(x, y) && checkWall(x+10, y) && checkWall(x-10, y)){
         dx[li][i] = x;
         dy[li][i] = y;
         dActive[li][i] = true;
@@ -82,7 +87,6 @@ function setItem(){
     }
 
     y += dis-10;
-    line += 1;
   }
 
 
@@ -126,7 +130,7 @@ function draw() {
   ellipse(px, py, pd);
 
   // 충돌 감지
-  for(let i = 0; i < line; i++){
+  for(let i = 0; i < dActive.length; i++){
     for(let j = 0; j < dActive[i].length; j++){
       if(dActive[i][j] === true){
         fill(255, 240, 31);
