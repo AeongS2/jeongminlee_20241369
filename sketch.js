@@ -172,6 +172,21 @@ function isOnItem(x, y){
   }
 }
 
+let invincible = 0;
+
+// 적 충돌 체크
+function checkEnemyCollision(){
+  for(let e of enemies){
+    let d = dist(px, py, e.x, e.y);
+
+    if(d < (pd/2 + esize/2)){
+      energy--;
+
+      break;
+    }
+  }
+}
+
 function draw() {
   
   background(img);
@@ -242,6 +257,8 @@ function draw() {
     fill(255, 7, 58);
     ellipse(e.x, e.y, esize);
   }
+
+  checkEnemyCollision();
 
 }
 
