@@ -194,7 +194,23 @@ function checkEnemyCollision(){
   }
 }
 
-function checkGame(){
+function checkWin(){
+  for(let i = 0; i < dActive.length; i++){
+    for(let j = 0; j < dActive[i].length; j++){
+      if(dActive[i][j] === true){
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+function showWin(){
+
+}
+
+function showGameOver(){
 
 }
 
@@ -207,60 +223,62 @@ function draw() {
   fill(255, 0, 0);
   text("에너지: " + energy, 10, 100);
 
-  // 팩맨
-  if(keyIsDown(LEFT_ARROW)){
-    if(checkWall(px - speed, py)){
-      px -= speed;
-    }
-  }
-  if(keyIsDown(RIGHT_ARROW)){
-    if(checkWall(px + speed, py)){
-      px += speed;
-    }
-  }
-  if(keyIsDown(UP_ARROW)){
-    if(checkWall(px, py - speed) === true){
-      py -= speed;
-    }
-  }
-  if(keyIsDown(DOWN_ARROW)){
-    if(checkWall(px, py + speed) === true){ 
-      py += speed;
-    }
-  }
+  if(gameState === 0){
 
-  //화면 워프
-  let warpTop = 720;
-  let warpBottom = 800;
-  if( py > warpTop && py < warpBottom ){
-    if(px < 0){
-      px = width - 10;
-    }
-    if(px > width){
-      px = 10;
-    }
-  }
-
-  fill(255, 255, 0);
-  ellipse(px, py, pd);
-
-  // 아이템 충돌 감지
-  for(let i = 0; i < dActive.length; i++){
-    for(let j = 0; j < dActive[i].length; j++){
-      if(dActive[i][j] === true){
-        fill(255, 240, 31);
-        ellipse(dx[i][j], dy[i][j], dsize);
-
-        let distance = dist(px, py, dx[i][j], dy[i][j]);
-  
-        if( distance < (pd / 2) + (dsize / 2)){
-          dActive[i][j] = false;
-          score = score + 1;
-        }
+    // 팩맨이동
+    if(keyIsDown(LEFT_ARROW)){
+      if(checkWall(px - speed, py)){
+        px -= speed;
       }
-
-    
     }
+    if(keyIsDown(RIGHT_ARROW)){
+      if(checkWall(px + speed, py)){
+        px += speed;
+      }
+    }
+    if(keyIsDown(UP_ARROW)){
+      if(checkWall(px, py - speed) === true){
+        py -= speed;
+      }
+    }
+    if(keyIsDown(DOWN_ARROW)){
+      if(checkWall(px, py + speed) === true){ 
+        py += speed;
+      }
+    }
+  
+    //화면 워프
+    let warpTop = 720;
+    let warpBottom = 800;
+    if( py > warpTop && py < warpBottom ){
+      if(px < 0){
+        px = width - 10;
+      }
+      if(px > width){
+        px = 10;
+      }
+    }
+  
+    // 아이템 충돌 감지
+    for(let i = 0; i < dActive.length; i++){
+      for(let j = 0; j < dActive[i].length; j++){
+        if(dActive[i][j] === true){
+          fill(255, 240, 31);
+          ellipse(dx[i][j], dy[i][j], dsize);
+  
+          let distance = dist(px, py, dx[i][j], dy[i][j]);
+    
+          if( distance < (pd / 2) + (dsize / 2)){
+            dActive[i][j] = false;
+            score = score + 1;
+          }
+        }
+  
+      
+      }
+    }
+  
+    checkEnemyCollision();
   }
 
   // 적 생성
@@ -269,7 +287,17 @@ function draw() {
     ellipse(e.x, e.y, esize);
   }
 
-  checkEnemyCollision();
+    //팩맨
+  fill(255, 255, 0);
+  ellipse(px, py, pd);
+
+  if(gameState === 1){
+    showWin();
+  }
+
+  if(gameState === 2){
+    showGameOver();
+  }
 
 }
 
