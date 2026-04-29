@@ -168,14 +168,15 @@ function draw() {
       if(dActive[i][j] === true){
         fill(255, 240, 31);
         ellipse(dx[i][j], dy[i][j], dsize);
+        
+        let distance = dist(px, py, dx[i][j], dy[i][j]);
+  
+        if( distance < (pd / 2) + (dsize / 2)){
+          dActive[i][j] = false;
+          score = score + 1;
+        }
       }
 
-      let distance = dist(px, py, dx[i][j], dy[i][j]);
-
-      if( distance < (pd / 2) + (dsize / 2)){
-        dActive[i][j] = false;
-        score = score + 1;
-      }
     
     }
   }
