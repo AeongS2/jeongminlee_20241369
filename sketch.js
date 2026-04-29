@@ -172,15 +172,21 @@ function isOnItem(x, y){
   }
 }
 
-let invincible = 0;
+let invincible = 0; //무적판정
 
 // 적 충돌 체크
 function checkEnemyCollision(){
+  if(invincible > 0){
+    invincible--;
+    return;
+  }
+
   for(let e of enemies){
     let d = dist(px, py, e.x, e.y);
 
     if(d < (pd/2 + esize/2)){
       energy--;
+      invincible = 120;
 
       break;
     }
