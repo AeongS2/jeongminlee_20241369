@@ -110,7 +110,7 @@ function setItem(){
   let y = 130;
   let dis = 79;
   
-  for(let li = 0; li < 16; li++){ //세로
+  for(let li = 0; li < 1; li++){ //세로 16(15)
     
     x = 440;
     dActive[li] = [];
@@ -217,7 +217,13 @@ function showWin(){
 }
 
 function showGameOver(){
+  fill(255, 0, 0);
+  textSize(200);
+  textAlign(CENTER, CENTER);
+  text("GAME OVER", width/2, height/2);
 
+  textSize(80);
+  text("r키를 눌러 재시작", width/2, height/2 + 200);
 }
 
 function draw() {
@@ -285,6 +291,14 @@ function draw() {
     }
   
     checkEnemyCollision();
+    
+    if(checkWin()){
+      gameState = 1;
+    }
+
+    if(energy <= 0){
+      gameState = 2;
+    }
   }
 
   // 적 생성
@@ -319,5 +333,19 @@ function keyPressed(){
 }
 
 function resetGame(){
-  
+  gameState = 0;
+
+  score = 0;
+  energy = 3;
+
+  px = 420;
+  py = 770;
+
+  dx = [];
+  dy = [];
+  dActive = [];
+  setItem();
+
+  enemies = [];
+  spawnEnemies(5);
 }
