@@ -229,6 +229,7 @@ function showGameOver(){
 function draw() {
   
   background(img);
+
   fill(255, 255, 0);
   textSize(50);
   text("점수: " + score, 10, 50);
@@ -334,6 +335,7 @@ function keyPressed(){
 
 function resetGame(){
   gameState = 0;
+  textAlign(LEFT, TOP);
 
   score = 0;
   energy = 3;
@@ -347,5 +349,6 @@ function resetGame(){
   setItem();
 
   enemies = [];
-  spawnEnemies(5);
+  setEnemies(5 + gamecnt);
+
 }
