@@ -115,7 +115,7 @@ function setItem(){
   let y = 130;
   let dis = 79;
   
-  for(let li = 0; li < 1; li++){ //세로 16(15)
+  for(let li = 0; li < 16; li++){ //세로 16(15)
     
     x = 440;
     dActive[li] = [];
@@ -248,15 +248,18 @@ function drawPacman(){
   if(dir === "RIGHT"){
     startAngle = mouth;
     endAngle = TWO_PI - mouth;
-  }else if(dir === "LEFT"){
+  }
+  else if(dir === "LEFT"){
     startAngle = PI + mouth;
-    endAngle = PI - mouth;
-  }else if(dir === "UP"){
+    endAngle = PI - mouth + TWO_PI;
+  }
+  else if(dir === "UP"){
     startAngle = -HALF_PI + mouth;
-    endAngle = HALF_PI - mouth;
-  }else if(dir === "DOWN"){
+    endAngle = -HALF_PI - mouth + TWO_PI;
+  }
+  else if(dir === "DOWN"){
     startAngle = HALF_PI + mouth;
-    endAngle = -HALF_PI - mouth;
+    endAngle = HALF_PI - mouth + TWO_PI;
   }
 
   arc(px, py, pd, pd, startAngle, endAngle, PIE);
