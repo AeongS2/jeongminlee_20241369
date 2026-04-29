@@ -60,26 +60,21 @@ function setItem(){
   let x = 420;
   let y = 130;
   let dis = 90;
-  let line = 1;
+  
+  for(let line = 0; line < 17; line++){ //세로
+    //가로 23개
+    for(let i = 0; i < 23; i++){
 
-  //가로 23개
-  for(let i = 0; i < 23; i++){  //line
-    //첫줄
-    if(line === 1){
       dx[i] = x;
       dy[i] = y;
 
-
       dActive[line][i] = true;
       x += dis;
-
+  
       
     }
-  }
 
-
-  for(let i = 0; i < 4; i++){
-
+    line += 1;
   }
 }
 
