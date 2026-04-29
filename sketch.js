@@ -20,12 +20,17 @@ let dActive = [];
 // 점수 데이터
 let gamecnt = 0;
 let score = 0;
+let energy = 3;
 
 // 팩맨 데이터
 let px = 420;
 let py = 770;
 let pd = 40;
 let speed = 10;
+
+// 적 데이터
+let enemies = [];
+let esize = 40;
 
 
 function checkWall(px, py){
@@ -128,9 +133,6 @@ function setItem(){
 
 }
 
-let enemies = [];
-let esize = 40;
-
 function setEnemies(n){
   let cnt = 0;
 
@@ -165,6 +167,8 @@ function draw() {
   fill(255, 255, 0);
   textSize(50);
   text("점수: " + score, 10, 50);
+  fill(255, 0, 0);
+  text("에너지: " + energy, 10, 100);
 
   // 팩맨
   if(keyIsDown(LEFT_ARROW)){
