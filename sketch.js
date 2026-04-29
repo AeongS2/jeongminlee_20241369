@@ -21,6 +21,7 @@ let dActive = [];
 let gamecnt = 0;
 let score = 0;
 let energy = 3;
+let gameState = 0;  //0: 게임중, 1: 승리, 2: 게임오버
 
 // 팩맨 데이터
 let px = 420;
@@ -191,6 +192,10 @@ function checkEnemyCollision(){
       break;
     }
   }
+}
+
+function checkGame(){
+
 }
 
 function draw() {
