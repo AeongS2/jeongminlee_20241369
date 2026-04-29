@@ -79,7 +79,7 @@ function checkPath(x, y){
       return false;
     }
 
-    if(rColor < 3 && gColor < 3 && bColor < 3){  // 검정색 거르기
+    if(bColor < 10){  // 검정색 거르기
       return false;
     }
 
