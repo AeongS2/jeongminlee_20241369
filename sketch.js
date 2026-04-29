@@ -62,22 +62,18 @@ function setItem(){
   let dis = 90;
   let line = 1;
 
-  for(let i = 0; i < 22; i++){
+  //가로 23개
+  for(let i = 0; i < 23; i++){  //line
     //첫줄
     if(line === 1){
       dx[i] = x;
       dy[i] = y;
+
+
       dActive[line][i] = true;
-  
       x += dis;
 
-      if(i === 10){
-        x += dis;
-      }
-      if(i === 21){
-        line = 2;
-        y += dis;
-      }
+      
     }
   }
 
