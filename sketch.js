@@ -27,11 +27,11 @@ let gameState = 0;  //0: 게임중, 1: 승리, 2: 게임오버
 let px = 420;
 let py = 770;
 let pd = 40;
-let speed = 10;
+let speed = 7;
 
 let dir = "RIGHT";   
 let mouth = 0;       
-let mouthSpeed = 0.1;
+let mouthSpeed = 0.05;
 let mouthDir = 1;    
 
 // 적 데이터
@@ -234,9 +234,32 @@ function showGameOver(){
 function updateMouth(){
   mouth += mouthSpeed * mouthDir;
 
-  if(mout > PI/4 || mouth < 0){
+  if(mouth > PI/4 || mouth < 0){
     mouthDir *= -1;
   }
+}
+
+
+function drawPacman(){
+  fill(255, 255, 0);
+
+  let startAngle, endAngle;
+
+  if(dir === "RIGHT"){
+    startAngle = mouth;
+    endAngle = TWO_PI - mouth;
+  }else if(dir === "LEFT"){
+    startAngle = PI + mouth;
+    endAngle = PI - mouth;
+  }else if(dir === "UP"){
+    startAngle = -HALF_PI + mouth;
+    endAngle = HALF_PI - mouth;
+  }else if(dir === "DOWN"){
+    startAngle = HALF_PI + mouth;
+    endAngle = -HALF_PI - mouth;
+  }
+
+  arc(px, py, pd, pd, startAngle, endAngle, PIE);
 }
 
 function draw() {
@@ -278,6 +301,9 @@ function draw() {
     }
 
     updateMouth();
+    if(!keyIsPressed){
+      mouth = 0;
+    }
   
     //화면 워프
     let warpTop = 720;
@@ -327,9 +353,8 @@ function draw() {
     ellipse(e.x, e.y, esize);
   }
 
-    //팩맨
-  fill(255, 255, 0);
-  ellipse(px, py, pd);
+  //팩맨
+  drawPacman();
 
   if(gameState === 1){
     showWin();
