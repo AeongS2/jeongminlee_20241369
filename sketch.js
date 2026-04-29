@@ -6,8 +6,8 @@ function preload(){
 
 function setup() {
   createCanvas(2816, 1536);
-  setItem();
   img.loadPixels();
+  setItem();
 }
 
 // 아이템 데이터
@@ -55,10 +55,27 @@ function checkWall(px, py){
   return true;
 }
 
-function checkPath(){
-  
+function checkPath(x, y){
+  let ix = floor(x);
+  let iy = floor(y);
 
-  return true;
+  // 범위 체크
+  if(ix < 0 || iy < 0 || ix >= img.width || iy >= img.height){
+    return false;
+  }
+
+  let index = (ix + iy * img.width) * 4;
+
+  let r = img.pixels[index];
+  let g = img.pixels[index+1];
+  let b = img.pixels[index+2];
+
+  if(r < 100 && g < 100 && b < 100){
+    return true;
+  }else{
+    return false;
+  }
+
 }
 
 //수정필요
@@ -74,7 +91,7 @@ function setItem(){
     dx[li] = [];
     dy[li] = [];
     for(let i = 0; i < 23; i++){
-      if(checkWall(x, y) && checkWall(x+10, y) && checkWall(x-10, y)){
+      if(checkPath(x, y)){
         dx[li][i] = x;
         dy[li][i] = y;
         dActive[li][i] = true;
