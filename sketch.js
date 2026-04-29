@@ -56,27 +56,31 @@ function checkWall(px, py){
 }
 
 function checkPath(x, y){
-  let dr = dsize/2;
+  let dr = dsize/2 + 5;
 
-  let ix = floor(x);
-  let iy = floor(y);
+  let dpoints = [
+    {x: x-dr, y: y},
+    {x: x+dr, y: y},
+    {x: x, y: y-dr},
+    {X: x, y: y+dr}
+  ];
 
-  // 범위 체크
-  if(ix < 0 || iy < 0 || ix >= img.width || iy >= img.height){
-    return false;
+  for(let p of dpoints){
+    let ix = floor(p.x);
+    let iy = floor(p.y);
+
+    let index = (ix + iy * img.width) * 4;
+
+    let rColor = img.pixels[index];
+    let gColor = img.pixels[index+1];
+    let bColor = img.pixels[index+2];
+
+    if(rColor > 100 || gColor > 100 || bColor > 100){
+      return false;
+    }
   }
 
-  let index = (ix + iy * img.width) * 4;
-
-  let r = img.pixels[index];
-  let g = img.pixels[index+1];
-  let b = img.pixels[index+2];
-
-  if(r < 100 && g < 100 && b < 100){
-    return true;
-  }else{
-    return false;
-  }
+  return true;
 
 }
 
