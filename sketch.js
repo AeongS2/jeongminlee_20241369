@@ -222,6 +222,12 @@ function draw() {
     }
   }
 
+  // 적 생성
+  for(let e of enemies){
+    fill(255, 7, 58);
+    ellipse(e.x, e.y, esize);
+  }
+
 }
 
 
