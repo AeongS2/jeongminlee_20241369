@@ -21,8 +21,8 @@ let gamecnt = 0;
 let score = 0;
 
 // 팩맨 데이터
-let px = 400;
-let py = 300;
+let px = 420;
+let py = 770;
 let pd = 40;
 let speed = 10;
 
@@ -125,6 +125,12 @@ function setItem(){
     y += dis+7;
   }
 
+}
+
+let enemies = [];
+let esize = 40;
+
+function setEnemies(n){
 
 }
 
@@ -159,16 +165,28 @@ function draw() {
     }
   }
 
+  //화면 워프
+  let warpTop = 720;
+  let warpBottom = 800;
+  if( py > warpTop && py < warpBottom ){
+    if(px < 0){
+      px = width - 10;
+    }
+    if(px > width){
+      px = 10;
+    }
+  }
+
   fill(255, 255, 0);
   ellipse(px, py, pd);
 
-  // 충돌 감지
+  // 아이템 충돌 감지
   for(let i = 0; i < dActive.length; i++){
     for(let j = 0; j < dActive[i].length; j++){
       if(dActive[i][j] === true){
         fill(255, 240, 31);
         ellipse(dx[i][j], dy[i][j], dsize);
-        
+
         let distance = dist(px, py, dx[i][j], dy[i][j]);
   
         if( distance < (pd / 2) + (dsize / 2)){
