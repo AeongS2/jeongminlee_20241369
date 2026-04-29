@@ -8,6 +8,7 @@ function setup() {
   createCanvas(2816, 1536);
   img.loadPixels();
   setItem();
+  setEnemies(5 + gamecnt);
 }
 
 // 아이템 데이터
@@ -131,7 +132,29 @@ let enemies = [];
 let esize = 40;
 
 function setEnemies(n){
+  let cnt = 0;
 
+  while(cnt < n){
+    let x = random(width);
+    let y = random(height);
+
+    if(checkPath(x, y)){
+
+      let valid = true;
+      for(let e of enemies){
+        let d = dist(x, y, e.x, e.y);
+        if(d < 100){
+          valis = false;
+          break;
+        }
+      }
+
+      if(valid){
+        enemies.push({x: x, y: y});
+        cnt++;
+      }
+    }
+  }
 }
 
 
