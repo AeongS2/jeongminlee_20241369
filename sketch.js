@@ -231,6 +231,14 @@ function showGameOver(){
   text("r키를 눌러 재시작", width/2, height/2 + 200);
 }
 
+function updateMouth(){
+  mouth += mouthSpeed * mouthDir;
+
+  if(mout > PI/4 || mouth < 0){
+    mouthDir *= -1;
+  }
+}
+
 function draw() {
   
   background(img);
@@ -247,23 +255,29 @@ function draw() {
     if(keyIsDown(LEFT_ARROW)){
       if(checkWall(px - speed, py)){
         px -= speed;
+        dir = "LEFT";
       }
     }
     if(keyIsDown(RIGHT_ARROW)){
       if(checkWall(px + speed, py)){
         px += speed;
+        dir = "RIGHT";
       }
     }
     if(keyIsDown(UP_ARROW)){
       if(checkWall(px, py - speed) === true){
         py -= speed;
+        dir = "UP";
       }
     }
     if(keyIsDown(DOWN_ARROW)){
       if(checkWall(px, py + speed) === true){ 
         py += speed;
+        dir = "DOWN";
       }
     }
+
+    updateMouth();
   
     //화면 워프
     let warpTop = 720;
