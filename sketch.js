@@ -74,7 +74,7 @@ function setItem(){
       
     }
 
-    line += 1;
+    y += dis;
   }
 }
 
