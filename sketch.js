@@ -56,18 +56,23 @@ function checkWall(px, py){
 }
 
 function checkPath(x, y){
-  let dr = dsize/2 + 5;
+  let dr = dsize/2 + 7;
 
   let dpoints = [
     {x: x-dr, y: y},
     {x: x+dr, y: y},
     {x: x, y: y-dr},
     {X: x, y: y+dr}
+
   ];
 
   for(let p of dpoints){  
     let ix = floor(p.x);
     let iy = floor(p.y);
+
+    if(ix < 0 || iy < 0 || ix >= img.width || iy >= img.height){
+      return false;
+    }
 
     let index = (ix + iy * img.width) * 4;
 
