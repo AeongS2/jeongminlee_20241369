@@ -207,7 +207,13 @@ function checkWin(){
 }
 
 function showWin(){
+  fill(255,255, 0);
+  textSize(200);
+  textAlign(CENTER, CENTER);
+  text("Clear !!", width/2, height/2);
 
+  textSize(80);
+  text("r키를 눌러 재시작", width/2, height/2 + 200);
 }
 
 function showGameOver(){
@@ -304,4 +310,14 @@ function draw() {
 
 function mousePressed(){
   console.log(mouseX, mouseY);
+}
+
+function keyPressed(){
+  if(key === 'r' || key === 'R'){
+    resetGame();
+  }
+}
+
+function resetGame(){
+  
 }
