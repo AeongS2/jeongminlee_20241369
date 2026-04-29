@@ -29,6 +29,11 @@ let py = 770;
 let pd = 40;
 let speed = 10;
 
+let dir = "RIGHT";   
+let mouth = 0;       
+let mouthSpeed = 0.1;
+let mouthDir = 1;    
+
 // 적 데이터
 let enemies = [];
 let esize = 40;
