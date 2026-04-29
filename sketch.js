@@ -98,7 +98,6 @@ function checkPath(x, y){
 
 }
 
-//수정필요
 function setItem(){
   let x;
   let y = 130;
@@ -137,9 +136,6 @@ function draw() {
   fill(255, 255, 0);
   textSize(50);
   text("점수: " + score, 10, 50);
-
-  // 벽
-  //drawMap();  //수정
 
   // 팩맨
   if(keyIsDown(LEFT_ARROW)){
