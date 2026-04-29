@@ -59,16 +59,20 @@ function checkPath(x, y){
   let dr = dsize/2 + 7;
 
   let dpoints = [
-    {x: x-dr, y: y},
-    {x: x+dr, y: y},
-    {x: x, y: y-dr},
-    {X: x, y: y+dr}
-
+    // {x: x-dr, y: y},
+    // {x: x+dr, y: y},
+    // {x: x, y: y-dr},
+    // {X: x, y: y+dr}
+    [0, 0],
+    [-dr, 0], [dr, 0], [0, -dr], [0, dr],
+    [-dr, -dr], [dr, -dr], [-dr, dr], [dr, dr]
   ];
 
   for(let p of dpoints){  
-    let ix = floor(p.x);
-    let iy = floor(p.y);
+    // let ix = floor(p.x);
+    // let iy = floor(p.y);
+    let ix = floor(x + p[0]);
+    let iy = floor(y + p[1]);
 
     if(ix < 0 || iy < 0 || ix >= img.width || iy >= img.height){
       return false;
@@ -90,9 +94,6 @@ function checkPath(x, y){
 
     
   }
-  // if( rColor < 10 && gColor < 10 && bColor < 80 && bColor > 50){
-  //   return true;
-  // }
   return true;
 
 }
