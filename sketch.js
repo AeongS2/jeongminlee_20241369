@@ -56,6 +56,8 @@ function checkWall(px, py){
 }
 
 function checkPath(x, y){
+  let dr = dsize/2;
+
   let ix = floor(x);
   let iy = floor(y);
 
