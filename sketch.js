@@ -23,7 +23,7 @@ let score = 0;
 // 팩맨 데이터
 let px = 400;
 let py = 300;
-let pd = 50;
+let pd = 40;
 let speed = 10;
 
 
@@ -65,7 +65,7 @@ function checkPath(x, y){
     {X: x, y: y+dr}
   ];
 
-  for(let p of dpoints){
+  for(let p of dpoints){  
     let ix = floor(p.x);
     let iy = floor(p.y);
 
@@ -75,11 +75,19 @@ function checkPath(x, y){
     let gColor = img.pixels[index+1];
     let bColor = img.pixels[index+2];
 
-    if(rColor > 100 || gColor > 100 || bColor > 100){
+    if(rColor > 100 || gColor > 100 || bColor > 100){ //하늘색벽 거르기
       return false;
     }
-  }
 
+    if(rColor < 3 && gColor < 3 && bColor < 3){  // 검정색 거르기
+      return false;
+    }
+
+    
+  }
+  // if( rColor < 10 && gColor < 10 && bColor < 80 && bColor > 50){
+  //   return true;
+  // }
   return true;
 
 }
@@ -88,15 +96,15 @@ function checkPath(x, y){
 function setItem(){
   let x;
   let y = 130;
-  let dis = 90;
+  let dis = 79;
   
-  for(let li = 0; li < 17; li++){ //세로 17개
-    //가로 23개
-    x = 435;
+  for(let li = 0; li < 16; li++){ //세로
+    
+    x = 440;
     dActive[li] = [];
     dx[li] = [];
     dy[li] = [];
-    for(let i = 0; i < 23; i++){
+    for(let i = 0; i < 26; i++){  // 가로
       if(checkPath(x, y)){
         dx[li][i] = x;
         dy[li][i] = y;
@@ -109,7 +117,7 @@ function setItem(){
       x += dis;
     }
 
-    y += dis-10;
+    y += dis+7;
   }
 
 
