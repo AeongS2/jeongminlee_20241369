@@ -140,7 +140,7 @@ function setEnemies(n){
     let x = random(width);
     let y = random(height);
 
-    if(checkPath(x, y)){
+    if(checkPath(x, y) && !isOnItem(x, y)){
 
       let valid = true;
       for(let e of enemies){
@@ -159,7 +159,18 @@ function setEnemies(n){
   }
 }
 
-
+function isOnItem(x, y){
+  for(let i = 0; i < dActive.length; i++){
+    for(let j = 0; j < dActive[i].length; j++){
+      if(dActive[i][j]){
+        let d = dist(x, y, dx[i][j], dy[i][j]);
+        if(d < (dsize/2 + 20)){ // 여유값
+          return true;
+        }
+      }
+    }
+  }
+}
 
 function draw() {
   
